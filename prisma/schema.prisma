@@ -17,27 +17,52 @@ datasource db {
 model Restorant {
   id Int @id @default(autoincrement())
   nom String @unique
-  date DateTime @default(now())
+  dateCreation DateTime @default(now())
   ville String
   adress String @unique
+  telephone String
+  nombreEmployee Int
+  employees Employee[]
+  repas Repas[]
 }
 
-model Client {
-
+model Reservation {
+  id Int @id @default(autoincrement())
+  nom String
+  email String
+  date DateTime @default(now())
+  nombrePerson Int
+  Request String
 }
 
 model Employee {
-
+  id Int @id @default(autoincrement())
+  nom String
+  psition String
+  restorant Restorant @relation(fields:[restorantNom], references:[nom])
+  restorantNom String
 }
 
 model Repas {
-
+  id Int @id @default(autoincrement())
+  nom String @unique
+  description String
+  prix Float
+  image String
+  categorie Categorie @relation(fields:[categorieId], references:[id])
+  categorieId Int
+  restorant Restorant @relation(fields:[restorantId], references:[id])
+  restorantId Int
 }
 
 model Categorie {
-
+  id Int @id @default(autoincrement())
+  nom String
+  repas Repas[]
 }
 
 model NewsLetter {
-  
+  name String
+  email String @unique
+  status String
 }
