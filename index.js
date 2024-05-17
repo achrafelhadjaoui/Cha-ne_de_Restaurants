@@ -4,6 +4,8 @@ const routerRestoran = require("./Routing/restoranRouting")
 const routerTeam = require("./Routing/teamsRouting")
 const routerNewsletter = require("./Routing/newsletterRouting")
 const routerhome = require("./Routing/homeRouting")
+const routerCategorie = require("./Routing/categorieRouting")
+const routerRepa = require("./Routing/repaRouting")
 
 const app = express();
 
@@ -16,6 +18,8 @@ app.use("/api", routerRestoran)
 app.use("/api", routerTeam)
 app.use("/api", routerNewsletter)
 app.use("/api", routerhome)
+app.use("/api", routerCategorie)
+app.use("/api", routerRepa)
 
 
 app.listen(8080, ()=>{

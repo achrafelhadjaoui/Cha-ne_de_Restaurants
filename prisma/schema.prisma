@@ -49,15 +49,15 @@ model Repas {
   description String
   prix Float
   image String
-  categorie Categorie @relation(fields:[categorieId], references:[id])
-  categorieId Int
+  categorie Categorie @relation(fields:[categorieNom], references:[nom])
+  categorieNom String
   restorant Restorant @relation(fields:[restorantId], references:[id])
   restorantId Int
 }
 
 model Categorie {
   id Int @id @default(autoincrement())
-  nom String
+  nom String @unique
   repas Repas[]
 }
 
