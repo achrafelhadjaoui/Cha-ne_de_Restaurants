@@ -1,5 +1,5 @@
 const express = require("express")
-const {getEmail, getEmails, creatEmail} = require("../controllers/newsletterController")
+const {getEmail, getEmails, creatEmail, sendEmails} = require("../controllers/newsletterController")
 const router = express.Router()
 
 
@@ -11,6 +11,9 @@ router.route("/newsletter/:status")
 router.route("/newsletter")
             .get(getEmails)
             .post(creatEmail)
+
+router.route("/newsletter/send")
+            .post(sendEmails)
 // router.route("/contact").get(getContact)
 // router.route("/footer").get(getAbout)
 
